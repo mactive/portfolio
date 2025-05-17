@@ -1,14 +1,21 @@
 import React from 'react'
+import {Route, BrowserRouter as Router, Routes} from 'react-router-dom';
+import Navbar from './components/Navbar';
+import { Home, About, Projects, Contact } from './pages';
 
 const App = () => {
   return (
-    <div>
-      <h1 className='text-5xl underline font-thin'>hello word</h1>
-      <h1 className='text-4xl underline font-light'>hello word</h1>
-      <h1 className='text-3xl underline font-normal'>你好，世界</h1>
-      <h1 className='text-2xl underline font-bold'>hello word</h1>
-      <h1 className='text-1xl underline font-black'>hello word</h1>
-    </div>
+    <main className='bg-slate-200'>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/projects' element={<Projects />} />
+          <Route path='/contact' element={<Contact />} />
+        </Routes>
+      </Router>
+    </main>
   )
 }
 
